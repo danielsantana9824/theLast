@@ -8,8 +8,8 @@ export const LOGIN_USER = gql`
         _id
         username
         email
-        role
         businessId
+        role
       }
     }
   }
@@ -52,21 +52,39 @@ export const ADD_INVENTORY_ITEM = gql`
 `;
 
 export const CREATE_ORDER = gql`
-  mutation CreateOrder(
-    $businessId: ID!
-    $customerId: ID!
-    $items: [OrderItemInput]!
-    $notes: String
-  ) {
-    createOrder(
-      businessId: $businessId
-      customerId: $customerId
-      items: $items
-      notes: $notes
-    ) {
+  mutation CreateOrder($input: OrderInput!) {
+    createOrder(input: $input) {
       _id
       orderNumber
-      total
+      status
+    }
+  }
+`;
+
+export const UPDATE_ORDER_STATUS = gql`
+  mutation UpdateOrderStatus($orderId: ID!, $status: String!) {
+    updateOrderStatus(orderId: $orderId, status: $status) {
+      _id
+      status
+    }
+  }
+`;
+
+export const CREATE_CUSTOMER = gql`
+  mutation CreateCustomer($input: CustomerInput!) {
+    createCustomer(input: $input) {
+      _id
+      name
+      email
+    }
+  }
+`;
+
+export const UPDATE_INVENTORY = gql`
+  mutation UpdateInventory($id: ID!, $input: InventoryInput!) {
+    updateInventory(id: $id, input: $input) {
+      _id
+      quantity
     }
   }
 `;

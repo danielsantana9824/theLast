@@ -82,7 +82,11 @@ Access the application at http://localhost:3000
 
 ## Credits
 
-Developed by Marcello Romero
+Developed by:
+ Marcello Romero
+ Larry Flecher
+ John Ferlito
+ Danie Ramirez
 
 ## License
 

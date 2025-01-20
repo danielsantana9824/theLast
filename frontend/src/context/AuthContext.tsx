@@ -1,55 +1,52 @@
-import { createContext, useContext, useState, useEffect, ReactNode } from 'react';
-import { useApolloClient } from '@apollo/client';
-import jwtDecode from 'jwt-decode';
+import React, { createContext, useContext, useState, useEffect } from 'react';
+import Auth from '../utils/auth';
 
 interface AuthContextType {
+  user: any;
   isAuthenticated: boolean;
-  user: any | null;
   login: (token: string) => void;
   logout: () => void;
 }
 
 const AuthContext = createContext<AuthContextType>({
-  isAuthenticated: false,
   user: null,
+  isAuthenticated: false,
   login: () => {},
   logout: () => {},
 });
 
-export const AuthProvider = ({ children }: { children: ReactNode }) => {
+export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
+  const [user, setUser] = useState<any>(null);
   const [isAuthenticated, setIsAuthenticated] = useState(false);
-  const [user, setUser] = useState(null);
-  const client = useApolloClient();
 
   useEffect(() => {
-    const token = localStorage.getItem('token');
-    if (token) {
-      try {
-        const decoded = jwtDecode(token);
-        setUser(decoded);
+    const checkAuth = () => {
+      if (Auth.loggedIn()) {
+        setUser(Auth.getProfile());
         setIsAuthenticated(true);
-      } catch (err) {
-        localStorage.removeItem('token');
+      } else {
+        setUser(null);
+        setIsAuthenticated(false);
       }
-    }
+    };
+
+    checkAuth();
   }, []);
 
   const login = (token: string) => {
-    localStorage.setItem('token', token);
-    const decoded = jwtDecode(token);
-    setUser(decoded);
+    Auth.login(token);
+    setUser(Auth.getProfile());
     setIsAuthenticated(true);
   };
 
   const logout = () => {
-    localStorage.removeItem('token');
+    Auth.logout();
     setUser(null);
     setIsAuthenticated(false);
-    client.resetStore();
   };
 
   return (
-    <AuthContext.Provider value={{ isAuthenticated, user, login, logout }}>
+    <AuthContext.Provider value={{ user, isAuthenticated, login, logout }}>
       {children}
     </AuthContext.Provider>
   );

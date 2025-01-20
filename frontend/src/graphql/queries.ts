@@ -1,13 +1,13 @@
 import { gql } from '@apollo/client';
 
 export const GET_ME = gql`
-  query Me {
+  query GetMe {
     me {
       _id
       username
       email
-      role
       businessId
+      role
     }
   }
 `;
@@ -28,11 +28,9 @@ export const GET_INVENTORY = gql`
     getInventory(businessId: $businessId) {
       _id
       name
-      description
       category
       quantity
       price
-      unit
       isActive
     }
   }
@@ -43,9 +41,6 @@ export const GET_ORDERS = gql`
     getOrders(businessId: $businessId, status: $status) {
       _id
       orderNumber
-      status
-      total
-      createdAt
       customer {
         name
       }
@@ -56,6 +51,9 @@ export const GET_ORDERS = gql`
         quantity
         price
       }
+      total
+      status
+      createdAt
     }
   }
 `;
@@ -71,6 +69,9 @@ export const GET_CUSTOMERS = gql`
         city
         state
       }
+      orders {
+        _id
+      }
     }
   }
 `;
@@ -83,6 +84,7 @@ export const GET_ANALYTICS = gql`
       averageOrderValue
       topProducts {
         item {
+          _id
           name
         }
         count

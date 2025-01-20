@@ -12,17 +12,17 @@ const userSchema = new mongoose.Schema({
     type: String,
     required: true,
     unique: true,
-    match: [/.+@.+\..+/, 'Must be a valid email address'],
+    match: [/.+@.+\..+/, 'Must match an email address!'],
   },
   password: {
     type: String,
     required: true,
-    minlength: 6,
+    minlength: 5,
   },
   role: {
     type: String,
     required: true,
-    enum: ['ADMIN', 'MANAGER', 'EMPLOYEE'],
+    enum: ['ADMIN', 'MANAGER', 'STAFF'],
   },
   permissions: [{
     type: String,
@@ -30,8 +30,8 @@ const userSchema = new mongoose.Schema({
   }],
   businessId: {
     type: mongoose.Schema.Types.ObjectId,
-    required: true,
     ref: 'BusinessConfig',
+    required: true,
   },
   createdAt: {
     type: Date,
@@ -42,7 +42,8 @@ const userSchema = new mongoose.Schema({
 // Hash password before saving
 userSchema.pre('save', async function (next) {
   if (this.isNew || this.isModified('password')) {
-    this.password = await bcrypt.hash(this.password, 10);
+    const saltRounds = 10;
+    this.password = await bcrypt.hash(this.password, saltRounds);
   }
   next();
 });
