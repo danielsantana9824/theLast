@@ -1,13 +1,18 @@
 import { extendTheme } from '@chakra-ui/react';
 
-export const theme = extendTheme({
+const theme = extendTheme({
   colors: {
     brand: {
-      50: '#f7fafc',
-      100: '#edf2f7',
-      500: '#718096',
-      600: '#4a5568',
-      900: '#171923',
+      50: '#f5f7fa',
+      100: '#e4e7eb',
+      200: '#cbd2d9',
+      300: '#9aa5b1',
+      400: '#7b8794',
+      500: '#616e7c',  // Primary brand color
+      600: '#52606d',
+      700: '#3e4c59',
+      800: '#323f4b',
+      900: '#1f2933',
     },
   },
   fonts: {
@@ -18,6 +23,7 @@ export const theme = extendTheme({
     global: {
       body: {
         bg: 'gray.50',
+        color: 'gray.800',
       },
     },
   },
@@ -26,6 +32,36 @@ export const theme = extendTheme({
       defaultProps: {
         colorScheme: 'brand',
       },
+      variants: {
+        solid: {
+          bg: 'brand.500',
+          color: 'white',
+          _hover: {
+            bg: 'brand.600',
+          },
+        },
+      },
+    },
+    Input: {
+      variants: {
+        filled: {
+          field: {
+            bg: 'gray.50',
+            _hover: {
+              bg: 'gray.100',
+            },
+            _focus: {
+              bg: 'white',
+              borderColor: 'brand.500',
+            },
+          },
+        },
+      },
+      defaultProps: {
+        variant: 'filled',
+      },
     },
   },
-}); 
+});
+
+export default theme; 

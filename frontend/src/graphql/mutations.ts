@@ -1,7 +1,7 @@
 import { gql } from '@apollo/client';
 
 export const LOGIN_USER = gql`
-  mutation login($email: String!, $password: String!) {
+  mutation Login($email: String!, $password: String!) {
     login(email: $email, password: $password) {
       token
       user {
@@ -9,37 +9,85 @@ export const LOGIN_USER = gql`
         username
         email
         role
-        permissions
         businessId
       }
     }
   }
 `;
 
-export const ADD_USER = gql`
-  mutation addUser(
-    $username: String!
-    $email: String!
-    $password: String!
-    $role: String!
+export const UPDATE_BUSINESS_CONFIG = gql`
+  mutation UpdateBusinessConfig($businessId: ID!, $name: String, $features: [String]) {
+    updateBusinessConfig(businessId: $businessId, name: $name, features: $features) {
+      _id
+      name
+      features
+    }
+  }
+`;
+
+export const ADD_INVENTORY_ITEM = gql`
+  mutation AddInventoryItem(
     $businessId: ID!
+    $name: String!
+    $description: String
+    $category: String!
+    $quantity: Int!
+    $price: Float
+    $unit: String
   ) {
-    addUser(
-      username: $username
-      email: $email
-      password: $password
-      role: $role
+    addInventoryItem(
       businessId: $businessId
+      name: $name
+      description: $description
+      category: $category
+      quantity: $quantity
+      price: $price
+      unit: $unit
     ) {
-      token
-      user {
-        _id
-        username
-        email
-        role
-        permissions
-        businessId
-      }
+      _id
+      name
+      quantity
+    }
+  }
+`;
+
+export const CREATE_ORDER = gql`
+  mutation CreateOrder(
+    $businessId: ID!
+    $customerId: ID!
+    $items: [OrderItemInput]!
+    $notes: String
+  ) {
+    createOrder(
+      businessId: $businessId
+      customerId: $customerId
+      items: $items
+      notes: $notes
+    ) {
+      _id
+      orderNumber
+      total
+    }
+  }
+`;
+
+export const ADD_CUSTOMER = gql`
+  mutation AddCustomer(
+    $businessId: ID!
+    $name: String!
+    $email: String
+    $phone: String
+    $address: AddressInput
+  ) {
+    addCustomer(
+      businessId: $businessId
+      name: $name
+      email: $email
+      phone: $phone
+      address: $address
+    ) {
+      _id
+      name
     }
   }
 `; 

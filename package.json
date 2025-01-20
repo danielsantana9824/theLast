@@ -1,12 +1,22 @@
 {
-  "dependencies": {
-    "@apollo/client": "^3.12.6",
-    "@chakra-ui/react": "^3.4.0",
-    "@emotion/react": "^11.14.0",
-    "@emotion/styled": "^11.14.0",
-    "framer-motion": "^12.0.0",
-    "graphql": "^16.10.0",
-    "jwt-decode": "^4.0.0",
-    "react-router-dom": "^7.1.3"
+  "name": "restaurant-management-system",
+  "version": "1.0.0",
+  "description": "A modern restaurant management system built with MERN stack",
+  "main": "index.js",
+  "scripts": {
+    "start": "concurrently \"cd backend && npm start\" \"cd frontend && npm start\"",
+    "install": "concurrently \"cd backend && npm install\" \"cd frontend && npm install\"",
+    "build": "concurrently \"cd backend && npm run build\" \"cd frontend && npm run build\"",
+    "dev": "concurrently \"cd backend && npm run dev\" \"cd frontend && npm start\""
+  },
+  "keywords": [
+    "mern",
+    "restaurant",
+    "management"
+  ],
+  "author": "Marcello Romero",
+  "license": "MIT",
+  "devDependencies": {
+    "concurrently": "^8.2.2"
   }
 }

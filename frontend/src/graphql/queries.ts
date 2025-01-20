@@ -1,32 +1,30 @@
 import { gql } from '@apollo/client';
 
 export const GET_ME = gql`
-  query me {
+  query Me {
     me {
       _id
       username
       email
       role
-      permissions
       businessId
     }
   }
 `;
 
 export const GET_BUSINESS_CONFIG = gql`
-  query getBusinessConfig($businessId: ID!) {
+  query GetBusinessConfig($businessId: ID!) {
     getBusinessConfig(businessId: $businessId) {
       _id
-      businessType
       name
+      businessType
       features
-      customFields
     }
   }
 `;
 
 export const GET_INVENTORY = gql`
-  query getInventory($businessId: ID!) {
+  query GetInventory($businessId: ID!) {
     getInventory(businessId: $businessId) {
       _id
       name
@@ -35,51 +33,61 @@ export const GET_INVENTORY = gql`
       quantity
       price
       unit
-      customFields
       isActive
     }
   }
 `;
 
 export const GET_ORDERS = gql`
-  query getOrders($businessId: ID!, $status: String) {
+  query GetOrders($businessId: ID!, $status: String) {
     getOrders(businessId: $businessId, status: $status) {
       _id
       orderNumber
       status
       total
+      createdAt
+      customer {
+        name
+      }
       items {
         item {
-          _id
           name
-          price
         }
         quantity
         price
-        notes
       }
-      createdAt
-      updatedAt
+    }
+  }
+`;
+
+export const GET_CUSTOMERS = gql`
+  query GetCustomers($businessId: ID!) {
+    getCustomers(businessId: $businessId) {
+      _id
+      name
+      email
+      phone
+      address {
+        city
+        state
+      }
     }
   }
 `;
 
 export const GET_ANALYTICS = gql`
-  query getAnalytics($businessId: ID!, $startDate: String!, $endDate: String!) {
+  query GetAnalytics($businessId: ID!, $startDate: String!, $endDate: String!) {
     getAnalytics(businessId: $businessId, startDate: $startDate, endDate: $endDate) {
       totalOrders
       totalRevenue
       averageOrderValue
       topProducts {
         item {
-          _id
           name
         }
         count
         revenue
       }
-      periodStart
-      periodEnd
     }
   }
 `; 
