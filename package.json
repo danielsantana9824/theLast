@@ -1,0 +1,12 @@
+{
+  "dependencies": {
+    "@apollo/client": "^3.12.6",
+    "@chakra-ui/react": "^3.4.0",
+    "@emotion/react": "^11.14.0",
+    "@emotion/styled": "^11.14.0",
+    "framer-motion": "^12.0.0",
+    "graphql": "^16.10.0",
+    "jwt-decode": "^4.0.0",
+    "react-router-dom": "^7.1.3"
+  }
+}
