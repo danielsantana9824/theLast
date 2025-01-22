@@ -51,12 +51,14 @@ const App = () => {
   return (
     <ApolloProvider client={client}>
       <ChakraProvider>
-        <Router>
+        <Router future={{ v7_startTransition: true, v7_relativeSplatPath: true }}>
           <AuthProvider>
             <CSSReset />
             <Header />
             <Routes>
               <Route path="/" element={<Home />} />
+              <Route path="/login" element={<Login />} />
+              <Route path="/register" element={<Register />} />
               <Route path="/profile" element={<Profile />} />
               <Route 
                 path="/customers" 

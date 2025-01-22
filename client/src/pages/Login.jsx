@@ -19,7 +19,7 @@ import { useAuth } from '../context/AuthContext';
 const Login = () => {
   const [formState, setFormState] = useState({ email: '', password: '' });
   const [login, { loading }] = useMutation(LOGIN_USER);
-  const { login: authLogin } = useAuth();
+  const { handleLogin } = useAuth();
   const navigate = useNavigate();
   const toast = useToast();
 
@@ -29,8 +29,7 @@ const Login = () => {
       const { data } = await login({
         variables: { ...formState },
       });
-
-      authLogin(data.login.user, data.login.token);
+      await handleLogin(formState.email, formState.password);
       navigate('/');
     } catch (err) {
       toast({
