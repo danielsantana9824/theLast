@@ -3,6 +3,7 @@ const express = require('express');
 const { ApolloServer } = require('apollo-server-express');
 const path = require('path');
 require('dotenv').config();
+const cors = require('cors');
 
 // Import custom modules
 const { typeDefs, resolvers } = require('./schemas');
@@ -21,6 +22,7 @@ const server = new ApolloServer({
 // Middleware
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
+app.use(cors());
 
 // Serve static assets in production
 if (process.env.NODE_ENV === 'production') {

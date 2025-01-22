@@ -23,7 +23,7 @@ import { AuthProvider } from './context/AuthContext';
 
 // Create Apollo Client
 const httpLink = createHttpLink({
-  uri: '/graphql',
+  uri: 'http://localhost:3001/graphql',
 });
 
 // Auth link middleware
@@ -56,10 +56,24 @@ const App = () => {
             <CSSReset />
             <Header />
             <Routes>
-              <Route path="/" element={<Home />} />
+              <Route 
+                path="/" 
+                element={
+                  <PrivateRoute>
+                    <Home />
+                  </PrivateRoute>
+                } 
+              />
               <Route path="/login" element={<Login />} />
               <Route path="/register" element={<Register />} />
-              <Route path="/profile" element={<Profile />} />
+              <Route 
+                path="/profile" 
+                element={
+                  <PrivateRoute>
+                    <Profile />
+                  </PrivateRoute>
+                } 
+              />
               <Route 
                 path="/customers" 
                 element={
