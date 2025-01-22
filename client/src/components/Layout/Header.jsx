@@ -15,13 +15,8 @@ import { FiBell, FiUser } from 'react-icons/fi';
 import { useAuth } from '../../context/AuthContext';
 
 const Header = () => {
-  const { user, logout } = useAuth();
+  const { user, handleLogout } = useAuth();
   const navigate = useNavigate();
-
-  const handleLogout = () => {
-    logout();
-    navigate('/login');
-  };
 
   return (
     <Box
@@ -62,4 +57,4 @@ const Header = () => {
   );
 };
 
-export default Header; 
+export default Header;

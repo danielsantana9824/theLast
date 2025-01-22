@@ -12,10 +12,14 @@ import Register from './pages/Register';
 import Inventory from './pages/Inventory';
 import Orders from './pages/Orders';
 import Customers from './pages/Customers';
+import Home from './pages/Home';
+import Profile from './pages/Profile';
 
 // Import components
 import PrivateRoute from './components/Auth/PrivateRoute';
 import Layout from './components/Layout/Layout';
+import Header from './components/Layout/Header';
+import { AuthProvider } from './context/AuthContext';
 
 // Create Apollo Client
 const httpLink = createHttpLink({
@@ -35,46 +39,25 @@ const authLink = setContext((_, { headers }) => {
 
 const client = new ApolloClient({
   link: authLink.concat(httpLink),
-  cache: new InMemoryCache()
+  cache: new InMemoryCache(),
+  defaultOptions: {
+    watchQuery: {
+      fetchPolicy: 'network-only',
+    },
+  },
 });
 
-function App() {
+const App = () => {
   return (
     <ApolloProvider client={client}>
       <ChakraProvider>
-        <CSSReset />
         <Router>
-          <Routes>
-            {/* Public routes */}
-            <Route path="/login" element={<Login />} />
-            <Route path="/register" element={<Register />} />
-            
-            {/* Protected routes */}
-            <Route element={<Layout />}>
-              <Route 
-                path="/" 
-                element={
-                  <PrivateRoute>
-                    <Dashboard />
-                  </PrivateRoute>
-                } 
-              />
-              <Route 
-                path="/inventory" 
-                element={
-                  <PrivateRoute>
-                    <Inventory />
-                  </PrivateRoute>
-                } 
-              />
-              <Route 
-                path="/orders" 
-                element={
-                  <PrivateRoute>
-                    <Orders />
-                  </PrivateRoute>
-                } 
-              />
+          <AuthProvider>
+            <CSSReset />
+            <Header />
+            <Routes>
+              <Route path="/" element={<Home />} />
+              <Route path="/profile" element={<Profile />} />
               <Route 
                 path="/customers" 
                 element={
@@ -83,12 +66,12 @@ function App() {
                   </PrivateRoute>
                 } 
               />
-            </Route>
-          </Routes>
+            </Routes>
+          </AuthProvider>
         </Router>
       </ChakraProvider>
     </ApolloProvider>
   );
 }
 
-export default App; 
+export default App;

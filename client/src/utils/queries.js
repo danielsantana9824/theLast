@@ -45,4 +45,69 @@ export const QUERY_LOW_STOCK = gql`
       minStockLevel
     }
   }
-`; 
+`;
+
+export const QUERY_CUSTOMERS = gql`
+  query customers {
+    customers {
+      _id
+      firstName
+      lastName
+      email
+      phone
+      address {
+        street
+        city
+        state
+        zipCode
+      }
+    }
+  }
+`;
+
+export const QUERY_INVENTORY = gql`
+  query inventory {
+    inventory {
+      _id
+      name
+      category
+      quantity
+      price
+      minStockLevel
+      isLowStock
+    }
+  }
+`;
+
+export const QUERY_ORDERS = gql`
+  query orders {
+    orders {
+      _id
+      customer {
+        fullName
+      }
+      items {
+        item {
+          name
+          price
+        }
+        quantity
+      }
+      status
+      totalAmount
+      paymentStatus
+      paymentMethod
+      createdAt
+    }
+  }
+`;
+
+export const QUERY_CUSTOMER_ORDERS = gql`
+  query customerOrders($customerId: ID!) {
+    customerOrders(customerId: $customerId) {
+      _id
+      status
+      totalAmount
+    }
+  }
+`;

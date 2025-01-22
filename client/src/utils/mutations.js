@@ -174,4 +174,18 @@ export const UPDATE_INVENTORY_ITEM = gql`
       isLowStock
     }
   }
-`; 
+`;
+
+export const DELETE_INVENTORY_ITEM = gql`
+  mutation deleteInventoryItem($id: ID!) {
+    deleteInventoryItem(id: $id) {
+      _id
+    }
+  }
+`;
+
+export const LOGOUT_USER = gql`
+  mutation logout {
+    logout
+  }
+`;
