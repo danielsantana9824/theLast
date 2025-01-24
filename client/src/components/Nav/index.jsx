@@ -9,6 +9,7 @@ import {
   HStack,
   IconButton,
   Link,
+  Image,
 } from '@chakra-ui/react';
 import { FiShoppingCart } from 'react-icons/fi';
 import { useStoreContext } from '../../utils/GlobalState';
@@ -76,16 +77,34 @@ function Nav() {
             to="/"
             _hover={{ textDecoration: 'none' }}
           >
-            <Text
-              fontSize="4xl"
-              fontWeight="lighter"
-              color="white"
-              letterSpacing="wider"
-              _hover={{ color: 'gray.300' }}
-              transition="color 0.2s"
-            >
-              PODCAST GEAR
-            </Text>
+            <Flex align="center">
+              <Image 
+                src="./public/images/logo.jpeg" 
+                alt="Podcast Gear Logo"
+                boxSize="50px"
+                mr={2}
+              />
+              <Text
+                fontSize={["md", "xl", "2xl", "4xl"]}
+                fontWeight="lighter"
+                color="white"
+                letterSpacing="wider"
+                _hover={{ color: 'gray.300' }}
+                transition="color 0.2s"
+                display={["none", "block"]}
+              >
+                {/* Show different text based on screen size */}
+                <Box display={["none", "block", "none"]}>
+                  PG
+                </Box>
+                <Box display={["none", "none", "block", "none"]}>
+                  PG Sales
+                </Box>
+                <Box display={["none", "none", "none", "block"]}>
+                  Podcast Gear Sales
+                </Box>
+              </Text>
+            </Flex>
           </Link>
 
           <Flex alignItems="center" gap={4}>
