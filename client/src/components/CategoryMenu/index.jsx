@@ -48,43 +48,24 @@ function CategoryMenu() {
   };
 
   return (
-    <Box py={3}>
-      <Container maxW="container.xl">
-        <HStack spacing={4} align="center">
-          <Heading size="sm" color="gray.300" mr={4}>
-            Choose a Category:
-          </Heading>
-          <Divider orientation="vertical" h="20px" borderColor="gray.600" />
-          <HStack spacing={3} overflow="auto" py={2}>
-            {categories.map((item) => (
-              <Button
-                key={item._id}
-                onClick={() => handleClick(item._id)}
-                size="sm"
-                variant="ghost"
-                color="gray.300"
-                bg="gray.800"
-                _hover={{ bg: 'gray.700', color: 'white' }}
-                _active={{ bg: 'gray.600' }}
-              >
-                {item.name}
-              </Button>
-            ))}
-            <Button
-              onClick={() => handleClick('')}
-              size="sm"
-              variant="ghost"
-              color="gray.300"
-              bg="gray.800"
-              _hover={{ bg: 'gray.700', color: 'white' }}
-              _active={{ bg: 'gray.600' }}
-            >
-              All
-            </Button>
-          </HStack>
-        </HStack>
-      </Container>
-    </Box>
+    <div className="category-container">
+      <h2>Choose a Category:</h2>
+      {categories.map((item) => (
+        <button
+          key={item._id}
+          className={state.currentCategory === item._id ? 'category-btn active' : 'category-btn'}
+          onClick={() => handleClick(item._id)}
+        >
+          {item.name}
+        </button>
+      ))}
+      <button
+        className={state.currentCategory === '' ? 'category-btn active' : 'category-btn'}
+        onClick={() => handleClick('')}
+      >
+        All
+      </button>
+    </div>
   );
 }
 
