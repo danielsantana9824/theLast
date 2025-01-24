@@ -6,6 +6,8 @@ import {
   createHttpLink,
 } from '@apollo/client';
 import { setContext } from '@apollo/client/link/context';
+import { ChakraProvider, ColorModeScript } from '@chakra-ui/react';
+import theme from './theme/index.js';
 
 import Nav from './components/Nav';
 import { StoreProvider } from './utils/GlobalState';
@@ -31,12 +33,15 @@ const client = new ApolloClient({
 
 function App() {
   return (
-    <ApolloProvider client={client}>
-      <StoreProvider>
-        <Nav />
-        <Outlet />
-      </StoreProvider>
-    </ApolloProvider>
+    <ChakraProvider theme={theme}>
+      <ColorModeScript initialColorMode={theme.config.initialColorMode} />
+      <ApolloProvider client={client}>
+        <StoreProvider>
+          <Nav />
+          <Outlet />
+        </StoreProvider>
+      </ApolloProvider>
+    </ChakraProvider>
   );
 }
 

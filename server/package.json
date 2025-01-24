@@ -18,7 +18,12 @@
     "graphql": "^16.6.0",
     "jsonwebtoken": "^8.5.1",
     "mongoose": "^8.0.0",
-    "stripe": "^8.67.0"
+    "stripe": "^8.67.0",
+    "@chakra-ui/react": "^2.x.x",
+    "@emotion/react": "^11.x.x",
+    "@emotion/styled": "^11.x.x",
+    "framer-motion": "^6.x.x",
+    "react-icons": "^4.x.x"
   },
   "devDependencies": {
     "nodemon": "^2.0.2"
