@@ -8,122 +8,122 @@ db.once('open', async () => {
   await cleanDB('User', 'users');
 
   const categories = await Category.insertMany([
-    { name: 'Food' },
-    { name: 'Household Supplies' },
-    { name: 'Electronics' },
-    { name: 'Books' },
-    { name: 'Toys' }
+    { name: 'Camera' },
+    { name: 'Microphone' },
+    { name: 'switch' },
+    { name: 'Lights' },
+    { name: 'Stand' }
   ]);
 
   console.log('categories seeded');
 
   const products = await Product.insertMany([
     {
-      name: 'Tin of Cookies',
+      name: 'Sony A1 II Mirrorless Camera',
       description:
-        'Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.',
-      image: 'cookie-tin.jpg',
+        'The Sony a1 II is their most versatile camera yet, offering the best overall mixture of speed, video capabilities, high-resolution stills, and a robust, professional-worthy body design. It pulls much of the original a1',
+      image: 'Sonya1.jpg',
       category: categories[0]._id,
-      price: 2.99,
-      quantity: 500
+      price: 6498.00,
+      quantity: 200
     },
     {
-      name: 'Canned Coffee',
+      name: 'Sony FE 24-70mm f/2.8 GM II Lens (Sony E)',
       description:
-        'Praesent sed lacinia mauris. Nulla congue nibh magna, at feugiat nunc scelerisque quis. Donec iaculis rutrum vulputate. Suspendisse lectus sem, vulputate ac lectus sed, placerat consequat dui.',
-      image: 'canned-coffee.jpg',
+        'A refined take on the fast standard zoom, the Sony FE 24-70mm f/2.8 GM II is not only smaller and lighter than the previous generation',
+      image: 'sonyFE28.jpg',
       category: categories[0]._id,
-      price: 1.99,
-      quantity: 500
+      price: 2298.00,
+      quantity: 110
     },
     {
-      name: 'Toilet Paper',
-      category: categories[1]._id,
+      name: 'Canon EOS R5 Mirrorless Camera',
       description:
-        'Donec volutpat erat erat, sit amet gravida justo sodales in. Phasellus tempus euismod urna. Proin ultrices nisi ut ipsum congue, vitae porttitor libero suscipit. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Aliquam lacinia a nisi non congue.',
-      image: 'toilet-paper.jpg',
-      price: 7.99,
-      quantity: 20
+        'For the professional image-maker who needs resolution, speed, and video capabilities, the Canon EOS R5 full-frame mirrorless camera features a newly developed 45MP CMOS sensor, which offers 8K raw video recording',
+      image: 'canonEOSR5.jpg',
+      category: categories[0]._id,
+      price: 3399.00,
+      quantity: 100
     },
     {
-      name: 'Handmade Soap',
-      category: categories[1]._id,
+      name: 'Canon RF 24-70mm f/2.8 L IS USM Lens',
       description:
-        'Praesent placerat, odio vel euismod venenatis, lectus arcu laoreet felis, et fringilla sapien turpis vestibulum nisl.',
-      image: 'soap.jpg',
-      price: 3.99,
+        'oised to be the new workhorse zoom, the Canon RF 24-70mm f/2.8 L IS USM is a versatile wide-angle to portrait-length lens characterized by its bright',
+      image: 'canon_3680.jpg',
+      category: categories[0]._id,
+      price: 2199.00,
       quantity: 50
     },
     {
-      name: 'Set of Wooden Spoons',
+      name: 'Shure SM7B Vocal Microphone',
       category: categories[1]._id,
       description:
-        'Vivamus ut turpis in purus pretium mollis. Donec turpis odio, semper vel interdum ut, vulputate at ex. Duis dignissim nisi vel tortor imperdiet finibus. Aenean aliquam sagittis rutrum.',
-      image: 'wooden-spoons.jpg',
-      price: 14.99,
-      quantity: 100
-    },
-    {
-      name: 'Camera',
-      category: categories[2]._id,
-      description:
-        'Vestibulum risus metus, luctus non tortor quis, tincidunt consectetur ex. Nullam vitae lobortis ligula, ut sagittis massa. Curabitur consectetur, tellus at pulvinar venenatis, erat augue cursus erat, eu ullamcorper eros lectus ultrices ipsum. Integer rutrum, augue vitae auctor venenatis, turpis turpis elementum orci, at sagittis risus mi a leo.',
-      image: 'camera.jpg',
-      price: 399.99,
+        'The gray Shure SM7B is a vocal microphone with a smooth, flat, and wide-range frequency response appropriate for music and speech in professional audio applications.',
+      image: 'shuresm7b.jpeg',
+      price: 399.00,
       quantity: 30
     },
     {
-      name: 'Tablet',
+      name: 'Shure Super 55',
+      category: categories[1]._id,
+      description:
+        'Presented in a chrome casing with blue foam, the Shure Super 55 is a supercardioid dynamic microphone boasting a classic look and vocal-tailored sound for recording sessions, live stage applications, podcasting, and on-camera use.',
+      image: 'Shuresuper55.jpg',
+      price: 249.99,
+      quantity: 62
+    },
+    {
+      name: 'Blackmagic Design ATEM Mini Pro',
       category: categories[2]._id,
       description:
-        'In sodales, ipsum quis ultricies porttitor, tellus urna aliquam arcu, eget venenatis purus ligula ut nisi. Fusce ut felis dolor. Mauris justo ante, aliquet non tempus in, tempus ac lorem. Aliquam lacinia dolor eu sem eleifend ultrices. Etiam mattis metus metus. Sed ligula dui, placerat non turpis vitae, suscipit volutpat elit. Phasellus sagittis, diam elementum suscipit fringilla, libero mauris scelerisque ex, ac interdum diam erat non sapien.',
-      image: 'tablet.jpg',
-      price: 199.99,
+        'Similar to its predecessor, the ATEM Mini, the ATEM Mini Pro from Blackmagic Design is a four-input, live production switcher with an integrated control panel designed for multi-camera live streaming up to HD video to the internet or broadcast applications',
+      image: 'atemminipro.jpeg',
+      price: 295.00,
       quantity: 30
     },
     {
-      name: 'Tales at Bedtime',
+      name: 'Blackmagic Design ATEM Mini Pro ISO',
+      category: categories[2]._id,
+      description:
+        'The ATEM Mini Pro ISO HDMI Live Stream Switcher from Blackmagic Design is a four-input live production switcher with an integrated control panel designed for multicamera live streaming up to HD video to the internet via Ethernet output.',
+      image: 'atemminiproiso.jpeg',
+      price: 495.00,
+      quantity: 30
+    },
+    {
+      name: 'Elgato Ring Light',
       category: categories[3]._id,
       description:
-        'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum ornare diam quis eleifend rutrum. Aliquam nulla est, volutpat non enim nec, pharetra gravida augue. Donec vitae dictum neque. Pellentesque arcu lorem, fringilla non ligula ac, tristique bibendum erat. Ut a semper nibh. Quisque a mi et mi tempor ultricies. Maecenas eu ipsum eu enim hendrerit accumsan at euismod urna.',
-      image: 'bedtime-book.jpg',
-      price: 9.99,
-      quantity: 100
+        'This Ring Light from Elgato is a 17" light source with a variable color temperature from 2900 to 7000K and a high CRI of 94 to ensure precise color rendition.',
+      image: 'elgato.jpg',
+      price: 99.99,
+      quantity: 110
     },
     {
-      name: 'Spinning Top',
+      name: 'GVM Bi-Color LED Ring Light ',
+      category: categories[3]._id,
+      description:
+        'The 14" Bi-Color LED Ring Light from GVM is a unique light source that envelopes your subject in soft, nearly shadowless light that is very flattering to skin tones and renders interesting catchlights in the eyes of your subject.',
+      image: 'gvm.jpg',
+      price: 39.99,
+      quantity: 110
+    },
+    {
+      name: 'Gator Frameworks Deluxe Frameworks Desk Mount',
       category: categories[4]._id,
-      description: 'Ut vulputate hendrerit nibh, a placerat elit cursus interdum.',
-      image: 'spinning-top.jpg',
-      price: 1.99,
+      description: 'Gator Frameworks Deluxe Frameworks Desk Mount Mic Boom Stand',
+      image: 'gatorframeworks.jpg',
+      price: 68.99,
       quantity: 1000
     },
     {
-      name: 'Set of Plastic Horses',
+      name: 'Samson MBA38 38" Microphone Boom Arm',
       category: categories[4]._id,
       description:
-        'Sed a mauris condimentum, elementum enim in, rhoncus dui. Phasellus lobortis leo odio, sit amet pharetra turpis porta quis.',
-      image: 'plastic-horses.jpg',
-      price: 2.99,
+        'Samson MBA38 38" Microphone Boom Arm',
+      image: 'samsonMBA38.jpg',
+      price: 69.99,
       quantity: 1000
-    },
-    {
-      name: 'Teddy Bear',
-      category: categories[4]._id,
-      description:
-        'Vestibulum et erat finibus erat suscipit vulputate sed vitae dui. Ut laoreet tellus sit amet justo bibendum ultrices. Donec vitae felis vestibulum, congue augue eu, finibus turpis.',
-      image: 'teddy-bear.jpg',
-      price: 7.99,
-      quantity: 100
-    },
-    {
-      name: 'Alphabet Blocks',
-      category: categories[4]._id,
-      description:
-        'Morbi consectetur viverra urna, eu fringilla turpis faucibus sit amet. Suspendisse potenti. Donec at dui ac sapien eleifend hendrerit vel sit amet lectus.',
-      image: 'alphabet-blocks.jpg',
-      price: 9.99,
-      quantity: 600
     }
   ]);
 
