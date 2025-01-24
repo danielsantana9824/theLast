@@ -79,12 +79,12 @@ function Nav() {
           >
             <Flex align="center">
               <Image 
-                src="./public/images/logo.jpeg" 
+                src="/images/logo.jpeg" 
                 alt="Podcast Gear Logo"
                 boxSize="50px"
                 mr={2}
               />
-              <Text
+              <Box
                 fontSize={["md", "xl", "2xl", "4xl"]}
                 fontWeight="lighter"
                 color="white"
@@ -103,7 +103,7 @@ function Nav() {
                 <Box display={["none", "none", "none", "block"]}>
                   Podcast Gear Sales
                 </Box>
-              </Text>
+              </Box>
             </Flex>
           </Link>
 
