@@ -11,6 +11,7 @@ import theme from './theme/index.js';
 
 import Nav from './components/Nav';
 import { StoreProvider } from './utils/GlobalState';
+import Footer from './components/Footer/index.jsx';
 
 const httpLink = createHttpLink({
   uri: '/graphql',
@@ -39,6 +40,7 @@ function App() {
         <StoreProvider>
           <Nav />
           <Outlet />
+          <Footer />
         </StoreProvider>
       </ApolloProvider>
     </ChakraProvider>
