@@ -1,5 +1,6 @@
 import { Box, Container, Stack, Text, Link, Icon } from '@chakra-ui/react';
-import { FaGithub, FaLinkedin, FaTwitter } from 'react-icons/fa';
+import { Link as RouterLink } from 'react-router-dom';
+import { FaGithub } from 'react-icons/fa';
 
 function Footer() {
   return (
@@ -17,18 +18,12 @@ function Footer() {
             <Link href="https://github.com/danielsantana9824/theLast/tree/main" target="_blank" _hover={{ color: 'gray.300' }}>
               <Icon as={FaGithub} w={6} h={6} />
             </Link>
-            {/* <Link href="#" _hover={{ color: 'gray.300' }}>
-              <Icon as={FaLinkedin} w={6} h={6} />
-            </Link>
-            <Link href="#" _hover={{ color: 'gray.300' }}>
-              <Icon as={FaTwitter} w={6} h={6} />
-            </Link> */}
           </Stack>
           
           <Stack direction="row" spacing={6}>
-            <Link href="#" _hover={{ color: 'gray.300' }}>Privacy</Link>
-            <Link href="#" _hover={{ color: 'gray.300' }}>Terms</Link>
-            <Link href="#" _hover={{ color: 'gray.300' }}>Contact</Link>
+            <Link as={RouterLink} to="/privacy" _hover={{ color: 'gray.300' }}>Privacy</Link>
+            <Link as={RouterLink} to="/terms" _hover={{ color: 'gray.300' }}>Terms</Link>
+            <Link as={RouterLink} to="/contact" _hover={{ color: 'gray.300' }}>Contact</Link>
           </Stack>
         </Stack>
       </Container>
