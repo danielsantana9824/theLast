@@ -9,6 +9,7 @@ A modern MERN stack e-commerce application that provides a seamless shopping exp
 - [Features](#features)
 - [Technologies Used](#technologies-used)
 - [Credits](#credits)
+- [Screenshot](#screenshot)
 - [License](#license)
 
 ## Installation
@@ -104,6 +105,9 @@ Developed by:
 - John Ferlito
 - Danie Ramirez
 - Larry Fletcher
+
+## Screenshot
+![alt text](./client/public/images/Screenshot%202025-01-27%20204622.png)
 
 ## License
 This project is licensed under the MIT License.
