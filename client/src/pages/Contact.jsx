@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { Box, Container, Heading, Text, VStack, FormControl, FormLabel, Input, Textarea, Button, Alert, AlertIcon, AlertTitle, AlertDescription } from '@chakra-ui/react';
 import { useNavigate } from 'react-router-dom';
+import { FaArrowLeft } from 'react-icons/fa';
 
 function Contact() {
   const [formData, setFormData] = useState({
@@ -73,6 +74,14 @@ function Contact() {
 
   return (
     <Container maxW="container.xl" py={8}>
+      <Button 
+        leftIcon={<FaArrowLeft />}
+        mb={4}
+        onClick={() => navigate('/')}
+        variant="ghost"
+      >
+        Back to Home
+      </Button>
       <VStack spacing={6} align="stretch">
         <Heading as="h1" size="xl" mb={6}>
           Contact Us
@@ -147,4 +156,4 @@ function Contact() {
   );
 }
 
-export default Contact; 
+export default Contact;

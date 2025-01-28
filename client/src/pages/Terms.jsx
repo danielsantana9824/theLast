@@ -1,8 +1,20 @@
-import { Box, Container, Heading, Text, VStack } from '@chakra-ui/react';
+import { Box, Container, Heading, Text, VStack, Button } from '@chakra-ui/react';
+import { useNavigate } from 'react-router-dom';
+import { FaArrowLeft } from 'react-icons/fa';
 
 function Terms() {
+  const navigate = useNavigate();
+
   return (
     <Container maxW="container.xl" py={8}>
+      <Button 
+        leftIcon={<FaArrowLeft />}
+        mb={4}
+        onClick={() => navigate('/')}
+        variant="ghost"
+      >
+        Back to Home
+      </Button>
       <VStack spacing={6} align="stretch">
         <Heading as="h1" size="xl" mb={6}>
           Terms of Service
@@ -43,4 +55,4 @@ function Terms() {
   );
 }
 
-export default Terms; 
+export default Terms;
