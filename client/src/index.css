@@ -402,3 +402,121 @@ input:focus {
 .cart-item-remove:hover {
   color: #d33f3f;
 }
+
+/* Contenedor principal */
+.product-container {
+  background-color: #111;
+  color: #fff;
+  padding: 30px;
+  border-radius: 15px;
+  max-width: 800px;
+  margin: auto;
+  text-align: center;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+/* Enlace de regreso */
+.back-link {
+  color: #f0c0c0;
+  font-size: 1.2em;
+  text-decoration: none;
+  margin-bottom: 20px;
+  display: inline-block;
+}
+
+.back-link:hover {
+  color: #1db6d3;
+}
+
+/* Título del producto */
+.product-title {
+  font-size: 2.5em;
+  color: #f0c0c0;
+  margin-bottom: 10px;
+  font-weight: bold;
+}
+
+/* Descripción del producto */
+.product-description {
+  color: #fff;
+  font-size: 1.2em;
+  margin-bottom: 20px;
+}
+
+/* Sección de precio y botones */
+.price-cart-section {
+  background-color: #222;
+  padding: 20px;
+  border-radius: 10px;
+  margin-bottom: 20px;
+}
+
+/* Precio */
+.price {
+  color: #f0c0c0;
+  font-size: 1.5em;
+  margin-bottom: 20px;
+}
+
+/* Botones */
+.buttons-container {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+}
+
+.add-to-cart-btn,
+.remove-from-cart-btn {
+  padding: 10px 20px;
+  font-size: 1.2em;
+  border: none;
+  cursor: pointer;
+  border-radius: 10px;
+  transition: all 0.3s ease;
+  width: 180px;
+}
+
+.add-to-cart-btn {
+  background-color: #f0c0c0;
+  color: #111;
+}
+
+.add-to-cart-btn:hover {
+  background-color: #c85be3;
+  color: #fff;
+}
+
+.remove-from-cart-btn {
+  background-color: #222;
+  color: #fff;
+}
+
+.remove-from-cart-btn:hover {
+  background-color: #f0c0c0;
+  color: #111;
+}
+
+/* Imagen del producto centrada con borde rosado */
+.product-image {
+  max-width: 60%;
+  margin-top: 20px;
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+  border-radius: 15px;
+  border: 5px solid #f0c0c0; /* Borde rosado */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+/* Contenedor de carga */
+.loading-container {
+  text-align: center;
+  margin-top: 30px;
+}
+
+.product-description {
+  color: #fff;
+  font-size: 1.2em;
+  margin-bottom: 20px;
+  text-align: justify; /* Justifica el texto */
+}

@@ -9,6 +9,7 @@ A modern MERN stack e-commerce application that provides a seamless shopping exp
 - [Features](#features)
 - [Technologies Used](#technologies-used)
 - [Credits](#credits)
+- [Screenshot](#screenshot)
 - [License](#license)
 
 ## Installation
@@ -105,6 +106,9 @@ Developed by:
 - Danie Ramirez
 - Larry Fletcher
 
+## Screenshot
+![alt text](./client/public/images/Screenshot%202025-01-27%20204622.png)
+
 ## License
 This project is licensed under the MIT License.
 
@@ -114,7 +118,7 @@ This project is licensed under the MIT License.
 For any questions or concerns, please open an issue in the GitHub repository or contact the developer directly.
 
 - Project Repository: [Podcast Gear](https://github.com/danielsantana9824/theLast/tree/main)
-- Deployed Application: [Live Demo](https://thelast-w1jl.onrender.com)
+- Deployed Application: [Live Demo](https://thelast-w1jl.onrender.com/)
 
 ---
 

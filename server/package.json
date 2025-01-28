@@ -13,17 +13,18 @@
   "license": "ISC",
   "dependencies": {
     "@apollo/server": "^4.7.2",
-    "bcrypt": "^4.0.1",
-    "express": "^4.17.2",
-    "graphql": "^16.6.0",
-    "jsonwebtoken": "^8.5.1",
-    "mongoose": "^8.0.0",
-    "stripe": "^8.67.0",
     "@chakra-ui/react": "^2.x.x",
     "@emotion/react": "^11.x.x",
     "@emotion/styled": "^11.x.x",
+    "bcrypt": "^4.0.1",
+    "dotenv": "^16.4.7",
+    "express": "^4.17.2",
     "framer-motion": "^6.x.x",
-    "react-icons": "^4.x.x"
+    "graphql": "^16.6.0",
+    "jsonwebtoken": "^8.5.1",
+    "mongoose": "^8.0.0",
+    "react-icons": "^4.x.x",
+    "stripe": "^8.67.0"
   },
   "devDependencies": {
     "nodemon": "^2.0.2"
