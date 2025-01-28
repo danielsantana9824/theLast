@@ -10,6 +10,9 @@ import Login from './pages/Login';
 import Signup from './pages/Signup';
 import Success from './pages/Success';
 import OrderHistory from './pages/OrderHistory';
+import Privacy from './pages/Privacy';
+import Terms from './pages/Terms';
+import Contact from './pages/Contact';
 
 const router = createBrowserRouter([
   {
@@ -35,6 +38,15 @@ const router = createBrowserRouter([
       }, {
         path: '/products/:id',
         element: <Detail />
+      }, {
+        path: '/privacy',
+        element: <Privacy />
+      }, {
+        path: '/terms',
+        element: <Terms />
+      }, {
+        path: '/contact',
+        element: <Contact />
       }
     ]
   }
