@@ -13,6 +13,9 @@ import OrderHistory from './pages/OrderHistory';
 import Privacy from './pages/Privacy';
 import Terms from './pages/Terms';
 import Contact from './pages/Contact';
+import AdminSignup from './pages/AdminSignup';
+import AdminDashboard from './pages/AdminDashboard';
+import ProtectedAdminRoute from './components/ProtectedAdminRoute';
 
 const router = createBrowserRouter([
   {
@@ -47,6 +50,16 @@ const router = createBrowserRouter([
       }, {
         path: '/contact',
         element: <Contact />
+      }, {
+        path: '/admin-signup',
+        element: <AdminSignup />
+      }, {
+        path: '/admin-dashboard',
+        element: (
+          <ProtectedAdminRoute>
+            <AdminDashboard />
+          </ProtectedAdminRoute>
+        )
       }
     ]
   }

@@ -37,4 +37,9 @@ module.exports = {
 
     return jwt.sign({ data: payload }, secret, { expiresIn: expiration });
   },
+  isAdmin: (context) => {
+    if (!context.user || !context.user.isAdmin) {
+      throw new AuthenticationError('Not authorized as admin');
+    }
+  },
 };

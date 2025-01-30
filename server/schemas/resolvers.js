@@ -113,10 +113,15 @@ const resolvers = {
 
       throw AuthenticationError;
     },
-    updateProduct: async (parent, { _id, quantity }) => {
-      const decrement = Math.abs(quantity) * -1;
-
-      return await Product.findByIdAndUpdate(_id, { $inc: { quantity: decrement } }, { new: true });
+    updateProduct: async (parent, { _id, ...args }, context) => {
+      if (context.user && context.user.isAdmin) {
+        return await Product.findByIdAndUpdate(
+          _id,
+          args,
+          { new: true }
+        ).populate('category');
+      }
+      throw AuthenticationError;
     },
     login: async (parent, { email, password }) => {
       const user = await User.findOne({ email });
@@ -134,6 +139,18 @@ const resolvers = {
       const token = signToken(user);
 
       return { token, user };
+    },
+    adminSignup: async (parent, args) => {
+      const user = await User.create({ ...args, isAdmin: true });
+      const token = signToken(user);
+      return { token, user };
+    },
+    addProduct: async (parent, args, context) => {
+      if (context.user && context.user.isAdmin) {
+        const product = await Product.create(args);
+        return await Product.findById(product._id).populate('category');
+      }
+      throw AuthenticationError;
     }
   }
 };

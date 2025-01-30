@@ -49,3 +49,49 @@ export const ADD_USER = gql`
     }
   }
 `;
+
+export const ADD_PRODUCT = gql`
+  mutation addProduct(
+    $name: String!
+    $description: String!
+    $image: String!
+    $price: Float!
+    $quantity: Int!
+    $category: ID!
+  ) {
+    addProduct(
+      name: $name
+      description: $description
+      image: $image
+      price: $price
+      quantity: $quantity
+      category: $category
+    ) {
+      _id
+      name
+      description
+      image
+      price
+      quantity
+      category {
+        _id
+        name
+      }
+    }
+  }
+`;
+
+export const ADMIN_SIGNUP = gql`
+  mutation AdminSignup($firstName: String!, $lastName: String!, $email: String!, $password: String!) {
+    adminSignup(firstName: $firstName, lastName: $lastName, email: $email, password: $password) {
+      token
+      user {
+        _id
+        firstName
+        lastName
+        email
+        isAdmin
+      }
+    }
+  }
+`;
